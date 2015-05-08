@@ -17,7 +17,7 @@ function [classes,binArray] = gen_train_data(descriptors,k)
     end
 
     %% Make array of classes
-    numClasses = length(unique(descriptors.class));
+    numClasses = length(unique([descriptors.class]));
     classes = repmat([descriptors.class]',1,numClasses)==repmat(1:numClasses,numImg,1);
 end
 
