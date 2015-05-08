@@ -1,15 +1,18 @@
 classdef sift_descriptor
     properties
         name
+        classname
         class
         d
-        f       
+        f  
+        
     end
     
     methods
-        function obj = sift_descriptor(name,class,d,f)
+        function obj = sift_descriptor(name,class,i,f,d)
             obj.name = name;
-            obj.class = class;
+            obj.classname = class;
+            obj.class=i;
             obj.d=d;
             obj.f=f;
         end;
