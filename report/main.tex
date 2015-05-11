@@ -1,0 +1,59 @@
+% Template for ICIP-2015 paper; to be used with:
+%          spconf.sty  - ICASSP/ICIP LaTeX style file, and
+%          IEEEbib.bst - IEEE bibliography style file.
+% --------------------------------------------------------------------------
+\documentclass{article}
+\usepackage{spconf,graphicx,todonotes}
+
+\title{Image Classification Using SIFT Features and Artificial Neural Network}
+
+\name{Dan Chianucci, Peter Muller}
+\address{Rochester Institute of Technology\\
+	Computer Engineering Department}
+
+
+\begin{document}
+%\ninept
+%
+\maketitle
+%
+\begin{abstract}
+In computer vision topics, classification is one of the more difficult actions that can be done with an image. Classification is the process of interpreting the contents of an image to sort it into one of several classes. In this experiment, SIFT, or Scale-Invariant Feature Transform, image features were extracted from images of the Caltech 101 data set. These features were quantized using K-means clustering, which were then used to train an artificial neural network (ANN) structure. \todo[inline]{results summary}
+\end{abstract}
+%
+\section{Introduction}
+\label{sec:intro}
+%
+\section{Methods}
+\label{sec:methods}
+To begin the classification process, features were extracted from the five selected classes of images. For each image, SIFT features were collected into an overlying data structure which contained the SIFT features from all images. Images were not preprocessed to normalize color or image intensities before the features were collected because the SIFT features themselves are invariant to these factors. The same SIFT features will be detected in the same image if only the intensities change.
+
+After the collection of all SIFT features, K-means clustering was used to quantize the features in a way such that different images could then be compared to others of different classes and feature points. \todo[inline]{Number of points - could do comparison of K vs. accuracy of classification.} After the quantization of all features of all images, the features of each individual image were then grouped into the nearest-neighbor K-means centroid. This creates a unique histogram for each image, in which similar groupings of features would theoretically result in similar image classifications. The image histograms were used as the inputs to the artificial neural network structure. Approximately 75\% of the 341 images across all five image classes were used to train the ANN, and the remaining images were used for verification and retrieval of classification results. The training of the ANN was done with the Neural Net Pattern Recognition application, available from the Neural Network Toolbox from MATLAB.
+%
+\section{Results}
+\label{sec:results}
+
+
+%
+%sample figure
+%\begin{figure}[Ht]
+%\centering
+%\includegraphics[scale=0.75]{Figures/objects.png}
+%\caption{Subset of object skeletonizations \cite{skeletons}.}
+%\label{fig:objects}
+%\end{figure}
+
+
+%
+\section{Discussion}
+\label{sec:discussions}
+
+
+% References should be produced using the bibtex program from suitable
+% BiBTeX files (here: refs). The IEEEbib.bst bibliography
+% style file from IEEE produces unsorted bibliography list.
+% -------------------------------------------------------------------------
+%\bibliographystyle{IEEEbib}
+%\bibliography{refs}
+
+\end{document}
