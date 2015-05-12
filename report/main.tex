@@ -23,16 +23,33 @@ In computer vision topics, classification is one of the more difficult actions t
 %
 \section{Introduction}
 \label{sec:intro}
+\todo[inline]{Actual research into related works and the direction of our own experiment.}
 %
 \section{Methods}
 \label{sec:methods}
-To begin the classification process, features were extracted from the five selected classes of images. For each image, SIFT features were collected into an overlying data structure which contained the SIFT features from all images. Images were not preprocessed to normalize color or image intensities before the features were collected because the SIFT features themselves are invariant to these factors. The same SIFT features will be detected in the same image if only the intensities change.
+As an overview of the experiment, several steps were taken. First, images from a single dataset were processed, and SIFT features were extracted from them. Preprocessing to normalize image intensities was not necessary because SIFT already accounted for these variations. An image compared with the same image, except for intensity variations, would still return the same SIFT features.
 
-After the collection of all SIFT features, K-means clustering was used to quantize the features in a way such that different images could then be compared to others of different classes and feature points. \todo[inline]{Number of points - could do comparison of K vs. accuracy of classification.} After the quantization of all features of all images, the features of each individual image were then grouped into the nearest-neighbor K-means centroid. This creates a unique histogram for each image, in which similar groupings of features would theoretically result in similar image classifications. The image histograms were used as the inputs to the artificial neural network structure. Approximately 75\% of the 341 images across all five image classes were used to train the ANN, and the remaining images were used for verification and retrieval of classification results. The training of the ANN was done with the Neural Net Pattern Recognition application, available from the Neural Network Toolbox from MATLAB.
+After every feature was collected from each image of the dataset, the data was quantized. K-means clustering was used to create bins for a histogram representation of the features. With a general structure that could be compared to for all images, the nearest-neighbor cluster centroids were used to count how many sift features appeared per histogram bin per image. These histograms gave the unique characteristics of each image class, which would be used for pattern recognition training in an artificial neural network.
+
+A matrix of expected results was made for the training of an artificial neural network. In theory, the histograms of images in the same class should be very similar, so the ANN would be able to recognize these patterns and classify unknown images accordingly. Given these steps, the image classifications could be demonstrated.
+%
+\section{Experimental Setup} \todo[inline]{This is test protocol part}
+\label{sec:expsetup}
+
+In this experiment, five classes of images, trilobite, nautilus, scorpion, sea\_horse, and stegosaurus, were selected from the Caltech 101 image dataset \todo[inline]{citation}. Because these images were all from the same dataset, no dataset bias was introduced like it would be if images from different datasets were used for classification. 
+
+To begin the classification process, features were extracted from the five selected classes of images. For each image, SIFT features were collected into an overlying data structure which contained the SIFT features from all images. As mentioned previously, preprocessing of images was not required because the SIFT features would not change based on different image intensities.
+
+After the collection of all SIFT features, K-means clustering was used to quantize the features database into a structure that individual image histograms would be compared to. \todo[inline]{Explain multiple K values} Because of the clustering, the mean centroids could be used to associate SIFT features of an individual image to the rest of the dataset. Using the nearest-neighbor centroid to the SIFT features of each individual image, histograms were calculated, denoting how many features were associated with a specific centroid. These histograms were used as inputs for the training and classification of images within the artificial neural network structure.
+
+Of the 341 images investigated in this experiment, \todo[inline]{number of images} were used for training, \todo[inline]{another number of images} were used for verification of the training, and \todo[inline]{last number of images} were used for the actual classification experiment. Using the feature histograms from each image and a matrix of expected classifications, the artificial neural network was trained to identify and classify the different image classes. The Neural Net Pattern Recognition application from the Neural Network Toolbox in MATLAB was used for the training and creation of the ANN, which was used to retrieve the results of the classifications.
+
 %
 \section{Results}
 \label{sec:results}
+Upon training the ANN, it was apparent that parameters of the experiment had to be altered to achieve the highest possible accuracy of classification. After fixing the number of hidden layers in the neural network to \todo[inline]{number of layers} layers, the only variable to adjust was the number of bins in the histograms generated using the K-means quantization. Figure \todo[inline]{insert a figure here} shows a comparison of the classification accuracies of different K-values used during the quantization stage.
 
+Once the greatest accuracy configuration was established, the images were then classified. For each image class, the best-case matches and the best-matching false positive results are shown in Figure \todo[inline]{another figure}.
 
 %
 %sample figure
@@ -46,8 +63,16 @@ After the collection of all SIFT features, K-means clustering was used to quanti
 
 %
 \section{Discussion}
-\label{sec:discussions}
+\label{sec:discussion}
+One of the major factors of the accuracy of a neural network classifiers was the amount of training data available for it to consume. Because only five classes were chosen for processing, that greatly reduced the number of images that could be used. Considering other implementations of neural networks, the lack of a large dataset was compensated by using a larger number of hidden layers within the ANN itself. Most networks only contained two to three layers, but this one contained \todo[inline]{number of layers}.
 
+Because of the fixed number of hidden layers, the K-value, used for clustering, was varied to achieve the greatest accuracy of the network, given little training data to work with. As shown in Figures \todo[inline]{figure numbers}, the K-value of \todo[inline]{number} gave the highest accuracy. \todo[inline]{talk about trend of K-values}
+
+\todo[inline]{talk about image results}
+
+\section{Appendix}
+\label{sec:appendix}
+\todo[inline]{include matlab code.}
 
 % References should be produced using the bibtex program from suitable
 % BiBTeX files (here: refs). The IEEEbib.bst bibliography
