@@ -22,7 +22,9 @@ In computer vision topics, classification is one of the more difficult actions t
 %
 \section{Introduction}
 \label{sec:intro}
-\todo[inline]{Actual research into related works and the direction of our own experiment.}
+In the realm of computer vision, classification can be a complex task. Multiple different methods of feature extraction have been used to find similarities in images, which would help classification methods to make the correct choices. For the feature extraction side, different algorithms exist to find key points in images. Several of these include finding Histograms of Oriented Gradients, or HOG, Scale-Invariant Feature Transform, or SIFT features, or Speeded Up Robust Features, or SURF. Each of these methods has its strengths and weaknesses, but for this investigation, SIFT was chosen. SIFT had success in face detection using genetic algorithms\cite{faces} and in classification of bone maturities based on x-ray images of left hands\cite{bones}.
+
+In both articles, a genetic or machine learning structure was used for the classification of images. For face detection, the genetic algorithm introduced was able to correctly identify faces\cite{faces}. In the bone classification, an artificial neural network was used for training and classification of x-ray images of left hands\cite{bones}. Based on the success of these experiments, SIFT was chosen for this classification experiment. An artificial neural network was chosen because it yields high-accuracy results with limited amounts of data\cite{bones}.
 %
 \section{Methods}
 \label{sec:methods}
@@ -35,7 +37,7 @@ A matrix of expected results was made for the training of an artificial neural n
 \section{Experimental Setup}
 \label{sec:expsetup}
 
-In this experiment, five classes of images, trilobite, nautilus, scorpion, sea\_horse, and stegosaurus, were selected from the Caltech 101 image dataset\cite{LiFergusPerona04}. Because these images were all from the same dataset, no dataset bias was introduced like it would be if images from different datasets were used for classification. 
+In this experiment, five classes of images, trilobite, nautilus, scorpion, sea\_horse, and stegosaurus, were selected from the Caltech 101 image dataset\cite{caltech101}. Because these images were all from the same dataset, no dataset bias was introduced like it would be if images from different datasets were used for classification. 
 
 To begin the classification process, features were extracted from the five selected classes of images. For each image, SIFT features were collected into an overlying data structure which contained the SIFT features from all images. As mentioned previously, preprocessing of images was not required because the SIFT features would not change based on different image intensities.
 
@@ -155,6 +157,7 @@ Other ways of improving this implementation would involve modifying the ANN itse
 % BiBTeX files (here: refs). The IEEEbib.bst bibliography
 % style file from IEEE produces unsorted bibliography list.
 % -------------------------------------------------------------------------
+\newpage
 \bibliographystyle{IEEEbib}
 \bibliography{refs}
 
