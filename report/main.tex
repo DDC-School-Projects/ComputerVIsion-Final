@@ -4,9 +4,8 @@
 % --------------------------------------------------------------------------
 \documentclass{article}
 \usepackage{graphicx,listings,spconf,todonotes}
-
+\lstset{breaklines}
 \title{Image Classification Using SIFT Features and Artificial Neural Network}
-
 \name{Dan Chianucci, Peter Muller}
 \address{Rochester Institute of Technology\\
 	Computer Engineering Department}
@@ -49,49 +48,49 @@ Of the 341 images investigated in this experiment, 239 images were used for trai
 \label{sec:results}
 Upon training the ANN, it was apparent that parameters of the experiment had to be altered to achieve the highest possible accuracy of classification. After fixing the number of nodes in the hidden layer of the neural network to 20 nodes, the only variable to adjust was the number of bins in the histograms generated using the K-means quantization. The following figures show a comparison of the classification accuracies of different K-values used during the quantization stage in the form of confusion matrices. Figure \ref{fig:k10} shows the confusion matrices of the classification with a K-value of 10, Figure \ref{fig:k20} shows the matrices with K=20, Figure \ref{fig:k50} shows them with K=50, and Figure \ref{fig:k100} shows the matrices with K=100. To visualize this data, receiver operating characteristic, or ROC, curves were created, which show the true positive rate, the rate at which images correctly mapped to their classes, in comparison to the false positive rate, the rate at which images are falsely classified into different classes than their own class. These curves are shown in Figures \ref{fig:r10}, \ref{fig:r20}, \ref{fig:r50}, and \ref{fig:r100}.
 %
-\begin{figure}[Ht]
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/Metrics/conf_k10}
 \caption{Confusion matrices with K=10.}
 \label{fig:k10}
 \end{figure}
-\begin{figure}[Ht]
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/Metrics/conf_k20}
 \caption{Confusion matrices with K=20.}
 \label{fig:k20}
 \end{figure}
-\begin{figure}[Ht]
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/Metrics/conf_k50}
 \caption{Confusion matrices with K=50.}
 \label{fig:k50}
 \end{figure}
-\begin{figure}[Ht]
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/Metrics/conf_k100}
 \caption{Confusion matrices with K=100.}
 \label{fig:k100}
 \end{figure}
-\begin{figure}[Ht]
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/Metrics/roc_k10}
 \caption{ROC curves with K=10.}
 \label{fig:r10}
 \end{figure}
-\begin{figure}[Ht]
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/Metrics/roc_k20}
 \caption{ROC curves with K=20.}
 \label{fig:r20}
 \end{figure}
-\begin{figure}[Ht]
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/Metrics/roc_k50}
 \caption{ROC curves with K=50.}
 \label{fig:r50}
 \end{figure}
-\begin{figure}[Ht]
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Figures/Metrics/roc_k100}
 \caption{ROC curves with K=100.}
@@ -160,10 +159,10 @@ Other ways of improving this implementation would involve modifying the ANN itse
 \bibliography{refs}
 
 \newpage
+\onecolumn
 \appendix
 \section{Appendix: Source Listing}
 \label{sec:source}
-\todo[inline]{include matlab code.}
 \lstinputlisting[language=Matlab, frame=single, caption=startup.m]{../startup.m}
 \lstinputlisting[language=Matlab, frame=single, caption=run\_script.m]{../run_script.m}
 \lstinputlisting[language=Matlab, frame=single, caption=calculate\_features.m]{../calculate_features.m}
