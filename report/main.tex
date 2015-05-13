@@ -3,7 +3,7 @@
 %          IEEEbib.bst - IEEE bibliography style file.
 % --------------------------------------------------------------------------
 \documentclass{article}
-\usepackage{spconf,graphicx,todonotes}
+\usepackage{graphicx,listings,spconf,todonotes}
 
 \title{Image Classification Using SIFT Features and Artificial Neural Network}
 
@@ -152,16 +152,25 @@ Considering the amount of data used in this experiment, the classifier accuracy 
 
 Other ways of improving this implementation would involve modifying the ANN itself. By converting the artificial neural network into a deep belief network, higher accuracies could be experienced. This was simply a matter of adding more hidden layers to the ANN structure. In addition, more research could be done to see the effects of adding more nodes to the existing hidden layer. For the purposes of this experiment, the value was fixed at 20, but its effects were not explored any further in this context.
 
-
-\section{Appendix}
-\label{sec:appendix}
-\todo[inline]{include matlab code.}
-
 % References should be produced using the bibtex program from suitable
 % BiBTeX files (here: refs). The IEEEbib.bst bibliography
 % style file from IEEE produces unsorted bibliography list.
 % -------------------------------------------------------------------------
 \bibliographystyle{IEEEbib}
 \bibliography{refs}
+
+\newpage
+\appendix
+\section{Appendix: Source Listing}
+\label{sec:source}
+\todo[inline]{include matlab code.}
+\lstinputlisting[language=Matlab, frame=single, caption=startup.m]{../startup.m}
+\lstinputlisting[language=Matlab, frame=single, caption=run\_script.m]{../run_script.m}
+\lstinputlisting[language=Matlab, frame=single, caption=calculate\_features.m]{../calculate_features.m}
+\lstinputlisting[language=Matlab, frame=single, caption=gen\_train\_data.m]{../gen_train_data.m}
+\lstinputlisting[language=Matlab, frame=single, caption=sift\_descriptor.m]{../sift_descriptor.m}
+\lstinputlisting[language=Matlab, frame=single, caption=read\_gray.m]{../read_gray.m}
+\lstinputlisting[language=Matlab, frame=single, caption=train\_nn.m]{../train_nn.m}
+
 
 \end{document}
