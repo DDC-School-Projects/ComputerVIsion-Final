@@ -48,7 +48,7 @@ Of the 341 images investigated in this experiment, 239 images were used for trai
 %
 \section{Results}
 \label{sec:results}
-Upon training the ANN, it was apparent that parameters of the experiment had to be altered to achieve the highest possible accuracy of classification. After fixing the number of nodes in the hidden layer of the ANN to 20 nodes, the only variable to adjust was the number of bins in the histograms generated using the K-means quantization. The following figures show a comparison of the classification accuracies of different K-values used during the quantization stage in the form of confusion matrices. Figure \ref{fig:k10} shows the confusion matrices of the classification with a K-value of 10, Figure \ref{fig:k20} shows the matrices with K=20, Figure \ref{fig:k50} shows them with K=50, and Figure \ref{fig:k100} shows the matrices with K=100. To visualize this data, receiver operating characteristic, or ROC, curves were created, which show the true positive rate, the rate at which images correctly mapped to their classes, in comparison to the false positive rate, the rate at which images are falsely classified into different classes than their own class. These curves are shown in Figures \ref{fig:r10}, \ref{fig:r20}, \ref{fig:r50}, and \ref{fig:r100}.
+Upon training the ANN, it was apparent that parameters of the experiment had to be altered to achieve the highest possible accuracy of classification. After fixing the number of nodes in the hidden layer of the ANN to 20 nodes, the only variable to adjust was the number of bins in the histograms generated using the K-means quantization. The following figures show a comparison of the classification accuracies of different K-values used during the quantization stage in the form of confusion matrices. Figure \ref{fig:k10} shows the confusion matrices of the classification with a K-value of 10, Figure \ref{fig:k20} shows the matrices with K=20, Figure \ref{fig:k50} shows them with K=50, and Figure \ref{fig:k100} shows the matrices with K=100. To visualize this data, receiver operating characteristic, or ROC, curves were created, which show the true positive rate, the rate at which images correctly mapped to their classes, in comparison to the false positive rate, the rate at which images are falsely classified into different classes than their own class. These curves are shown in Figures \ref{fig:r10}, \ref{fig:r20}, \ref{fig:r50}, and \ref{fig:r100}. From the confusion matrix of the K=100 results, a test result of 72.5\% accuracy was achieved.
 %
 \begin{figure}[h]
 \centering
@@ -70,7 +70,7 @@ Upon training the ANN, it was apparent that parameters of the experiment had to 
 \end{figure}
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/Metrics/conf_k100}
+\includegraphics[scale=0.5]{Figures/Metrics/conf_k100_n20}
 \caption{Confusion matrices with K=100.}
 \label{fig:k100}
 \end{figure}
@@ -94,7 +94,7 @@ Upon training the ANN, it was apparent that parameters of the experiment had to 
 \end{figure}
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{Figures/Metrics/roc_k100}
+\includegraphics[scale=0.5]{Figures/Metrics/roc_k100_n20}
 \caption{ROC curves with K=100.}
 \label{fig:r100}
 \end{figure}
